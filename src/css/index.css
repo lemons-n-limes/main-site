@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+@import url('./themes.css');
+
+body {
+  --border-radius: 15px;
+  --border-radius-circle: 100%;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  background: transparent;
+  width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--primary);
+}
+
+::placeholder {
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.nav {
+  background: var(--background);
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  position: fixed;
+  top: 60px;
+  bottom: 60px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px - 60px);
+}
+
+.title {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 700;
+  user-select: none;
+}
+
+.omnibox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: calc(100% - 2rem);
+}
+
+.search {
+  border-radius: var(--border-radius);
+  background: var(--primary);
+  color: var(--text-inverse);
+  width: 30rem;
+  height: 50px;
+  outline: none;
+  font-family: roboto;
+  font-size: large;
+  border: none;
+  padding: 0 1rem;
+  max-width: 100%;
+  padding-left: calc(1rem + 20px + 5px);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
+
+.searchIcon svg {
+  height: 20px;
+  width: 20px;
+}
+
+.navItems {
+  display: flex;
+  margin-left: auto;
+  margin-right: 1rem;
+  gap: 0.5rem;
+}
+
+.navItem {
+  background: var(--primary);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-circle);
+  cursor: pointer;
+}
+
+.navItem svg {
+  height: 20px;
+  width: 20px;
+}
+
+.footer {
+  background: var(--background);
+  width: -webkit-fill-available;
+  height: 25px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  padding-top: 0;
+}
+
+.footerItem {
+  font-size: 13px;
+  user-select: none;
+}
+
+.footerItemRight {
+  margin-left: auto;
+}
+
+.link {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.errorTitle {
+  margin-top: calc(60px + 1rem);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  user-select: none;
+}
+
+.errorText {
+  text-align: center;
+  margin-top: 0.5rem;
+  user-select: none;
+}
+
+.options {
+  gap: 2rem;
+  margin: 0 1rem;
+  margin-top: calc(60px + 1rem);
+  margin-bottom: calc(25px + 1rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, calc(18rem));
+  justify-content: space-evenly;
+}
+
+.option {
+  width: 18rem;
+  height: 18rem;
+  padding: 30px;
+  background: var(--primary);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+}
+
+.web {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+  z-index: 10;
+  display: none;
+}
+
+.web[data-open="true"] {
+  display: inherit;
+}
+
+.close {
+  background: var(--primary);
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-circle);
+  cursor: pointer;
+  z-index: 11;
+  position: fixed;
+  top: 0.25rem;
+  right: 0.25rem;
+  display: none;
+}
+
+.close svg {
+  height: 20px;
+  width: 20px;
+}
+
+.web[data-open="true"] + .close {
+  display: flex;
+}
+
+.contributers {
+  margin: 0 auto;
+  width: fit-content;
+  margin-top: 0.5rem;
+  gap: 0.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.privacy {
+  margin: 0 1rem;
+  margin-top: calc(60px + 1rem);
+  margin-bottom: 25px;
+}
+
+.optionTitle {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--text-inverse);
+}
+
+.optionText {
+  text-align: center;
+  color: var(--text-inverse);
+}
+
+.solid-select-single-value {
+  color: var(--text);
+}
+
+.solid-select-option {
+  color: var(--text);
+  background: transparent !important;
+  padding-left: 0;
+  cursor: pointer !important;
+}
+
+.solid-select-container {
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 0.25rem 0.5rem;
+  margin: 0.5rem 0;
+  cursor: pointer !important;
+}
+
+.solid-select-list {
+  border-radius: var(--border-radius) !important;
+  box-shadow: none;
+  top: 2.75rem;
+  left: 0;
+}
+
+.solid-select-input {
+  cursor: pointer !important;
+}
+
+.solid-select-list::-webkit-scrollbar {
+  background: transparent;
+  width: 16px;
+}
+
+.solid-select-list::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  background-clip: content-box;
+  border: 4px solid transparent;
+  border-radius: 12px;
+}
+
+.solid-select-list::-webkit-scrollbar-track {
+  margin: 4px 0;
+}
+
+.optionButton {
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 0.25rem 0.5rem;
+  margin: 0.5rem 0;
+  height: calc(32px + 0.5rem);
+  display: flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  padding-left: 1rem;
+  font-size: 1rem;
+  color: var(--text);
+  outline: none;
+  border: none;
+  width: -webkit-fill-available;
+}
+
+.optionInput {
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 0.25rem 1rem;
+  margin: 0.5rem 0;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  font-size: 1rem;
+  color: var(--text);
+  outline: none;
+  border: none;
+  width: -webkit-fill-available;
+}
+
+.toggle {
+  background: var(--background);
+  border-radius: 100px;
+  padding: 0.25rem 1rem;
+  margin: 0.5rem auto;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text);
+  width: 3rem;
+  position: relative;
+}
+
+.toggleInside {
+  background: var(--primary);
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 100px;
+  left: 10px;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: height 80ms ease-out, width 80ms ease-out, transform 80ms ease-out, opacity 80ms ease-out;
+}
+
+.toggle[on=true] .toggleInside {
+  width: 28px;
+  height: 28px;
+  opacity: 1;
+  transform: translateX(calc(100% + 8px));
+}
